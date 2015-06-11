@@ -1,5 +1,5 @@
 module.exports = {
-	build_dir: 'dist',
+	build_dir: 'public',
 	compile_dir: 'bin',
 
 	app_files: {
