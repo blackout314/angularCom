@@ -119,7 +119,9 @@ module.exports = function (grunt) {
 				boss: true,
 				eqnull: true
 			},
-			globals: {}
+			globals: [
+                "angular"
+            ]
 		},
 
 		// delta watch
