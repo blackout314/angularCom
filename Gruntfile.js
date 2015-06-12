@@ -13,6 +13,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-html2js');
 	grunt.loadNpmTasks('grunt-ngmin');
 
+    grunt.loadNpmTasks('grunt-replace');
+
 	var usrConfig = require('./config.js');
 
 	var taskConfig = {
@@ -32,6 +34,27 @@ module.exports = function (grunt) {
 			'<%= build_dir %>',
 			'<%= compile_dir %>'
 		],
+
+        // replace
+        replace: {
+            dist: {
+                options: {
+                    patterns: [
+                        {
+                            match: 'path',
+                            replacement: 'app'
+                        },
+                        {
+                            match: 'env',
+                            replacement: 'demo'
+                        }
+                    ]
+                },
+                files: [
+                    { expand: true, flatten: true, src: [ usrConfig.build_dir + '/src/main.html'], dest: usrConfig.build_dir+'/src' }
+                ]
+            }
+        },
 
 		// concat
 		concat: {
@@ -152,7 +175,7 @@ module.exports = function (grunt) {
 	grunt.registerTask( 'build', [
 		'clean', 'copy:build_views',
 		'jshint', 'copy:build_appjs', 'uglify',
-		'sass', 'concat', 'cssmin'
+		'sass', 'concat', 'cssmin', 'replace:dist'
 	]);
 	grunt.registerTask( 'default', [ 'build' ] );
 	grunt.registerTask('deploy', ['default', 'gh-pages']);
