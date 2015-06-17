@@ -12,9 +12,19 @@
         }])
 
         .controller('CartCtrl', ['$scope', 'Cart', function ($scope, Cart) {
+            $scope.template = 'app/cart/cart.html'; // TODO creare vista intera e rinominare la partial
 
+            // retrieve user info (if present)
             $scope.user     = 'UserExample';
-            $scope.template = 'app/cart/cart.html';
 
+            // actions
+            $scope.increaseQuantity = function (id) {
+            };
+            $scope.decreaseQuantity = function (id) {
+            };
+            $scope.deleteItem = function (id) {
+            };
+            $scope.moveToWishlist = function (id) {
+            };
         }]);
 }(document, window));

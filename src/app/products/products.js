@@ -23,7 +23,9 @@
             };
 
             if ($routeParams.productId) {
+                // <- retrieve products data
                 console.log('ok');
+                // send to -> view
                 $scope.product = { "productID": $routeParams.productId };
             }
 
@@ -31,6 +33,7 @@
              * @param id sku of item
              */
             $scope.addToCart = function (id) {
+                // -> add in the cart
                 //console.log('id add to cart'+id);
             };
             $scope.openItem = function (id) {
