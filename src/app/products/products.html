@@ -1,7 +1,7 @@
- <div class="container" ng-controller="ProductsCtrl">
-
+ <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
+
+        <div ng-controller="ProductsCtrl" class="col-xs-9 col-md-9 col-sm-9 col-lg-9">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Panel title</h3>
@@ -22,6 +22,9 @@
                 </div>
             </div>
           </div>
-     </div>
+          <div ng-controller="CartCtrl" class="col-xs-3 col-md-3 col-sm-3 col-lg-3">
+              <div ng-include="template"></div>
+          </div>
 
+     </div>
 </div><!-- /.container -->

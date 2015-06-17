@@ -11,7 +11,10 @@
             });
         }])
 
-        .controller('CartCtrl', [function () {
+        .controller('CartCtrl', ['$scope', 'Cart', function ($scope, Cart) {
+
+            $scope.user     = 'UserExample';
+            $scope.template = 'app/cart/cart.html';
 
         }]);
 }(document, window));

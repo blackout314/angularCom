@@ -48,5 +48,21 @@
         };
         return Product;
     }]);
+    /**
+     * Model:Cart
+     */
+    store.factory('Cart', ['$http', function ($http) {
+        function Cart(cartData) {
+            if (cartData) {
+                this.setData(cartData);
+            }
+        }
+        Cart.prototype = {
+            setData: function (cartData) {
+                angular.extend(this, cartData);
+            }
+        };
+        return Cart;
+    }]);
 
 }(document, window));
