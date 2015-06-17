@@ -8,23 +8,33 @@
                 </div>
                 <div class="panel-body row" >
 
+
+
+                    <style>
+                        .galleria, .galleria img {
+                            height:100px !important;
+                        }
+                    </style>
                     <ul class="cd-gallery" ng-repeat="(key, value) in products">
                             <li>
-                                <a href="#">
-                                    <ul class="cd-item-wrapper">
-                                        <li class="selected">
+                                <div class="slider">
+                                    <ul>
+                                        <li>
                                             <img src="img/ugmonk-tshirt-1.jpg" alt="Preview image">
                                         </li>
-
-                                        <li class="move-right" data-sale="true" data-price="$22">
+                                        <li>
                                             <img src="img/ugmonk-tshirt-2.jpg" alt="Preview image">
                                         </li>
-
                                         <li>
                                             <img src="img/ugmonk-tshirt-3.jpg" alt="Preview image">
                                         </li>
                                     </ul>
-                                </a>
+
+                                    <div class="control">
+                                        <div class="mbtn dx" id="s5d">{</div>
+                                        <div class="mbtn sx" id="s5s">}</div>
+                                    </div>
+                                </div>
 
                                 <div class="cd-item-info">
                                     <span ng-bind="value.sku"></span> -
@@ -40,6 +50,9 @@
                                 </div>
                             </li>
                     </ul>
+
+
+
 
                 </div>
 
