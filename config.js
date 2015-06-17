@@ -4,7 +4,7 @@ module.exports = {
 
 	app_files: {
 		js: [ 'src/**/*.js' ],
-		views: [ 'src/**/*.html', 'src/**/*.png' ],
+		views: [ 'src/**/*.html', 'src/**/*.png', 'src/**/*.jpg' ],
 		css: [ 'src/**/*.scss' ]
 	},
 

@@ -6,20 +6,43 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Panel title</h3>
                 </div>
-                <div class="panel-body row" ng-repeat="(key, value) in products">
+                <div class="panel-body row" >
 
-                    <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2">
-                        <span class="btn btn-info btn-xs" ng-click="openItem(value.sku)">open</span>
-                        <span ng-bind="value.sku"></span> :
-                        <span ng-bind="value.name"></span>
-                        <span ng-bind="value.value"></span>
-                        <span class="btn btn-danger btn-xs" ng-click="addToCart(value.sku)">
-                            buy <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                        </span>
+                    <ul class="cd-gallery" ng-repeat="(key, value) in products">
+                            <li>
+                                <a href="#">
+                                    <ul class="cd-item-wrapper">
+                                        <li class="selected">
+                                            <img src="img/ugmonk-tshirt-1.jpg" alt="Preview image">
+                                        </li>
 
-                    </div>
+                                        <li class="move-right" data-sale="true" data-price="$22">
+                                            <img src="img/ugmonk-tshirt-2.jpg" alt="Preview image">
+                                        </li>
+
+                                        <li>
+                                            <img src="img/ugmonk-tshirt-3.jpg" alt="Preview image">
+                                        </li>
+                                    </ul>
+                                </a>
+
+                                <div class="cd-item-info">
+                                    <span ng-bind="value.sku"></span> -
+                                    <b><span ng-bind="value.name" ng-click="openItem(value.sku)" ></span></b>
+
+                                    <em class="cd-price" ng-bind="value.value"></em>
+
+                                    <span class="btn btn-info btn-xs" ng-click="openItem(value.sku)">open</span>
+
+                                    <span class="btn btn-danger btn-xs" ng-click="addToCart(value.sku)">
+                                        buy <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </li>
+                    </ul>
 
                 </div>
+
             </div>
           </div>
           <div ng-controller="CartCtrl" class="col-xs-3 col-md-3 col-sm-3 col-lg-3">

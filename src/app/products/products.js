@@ -16,9 +16,9 @@
                 });
         }])
 
-        .controller('ProductsCtrl', ['$scope', 'Product', '$routeParams', '$location', function ($scope, Product, $routeParams, $location) {
+        .controller('ProductsCtrl', ['$scope', 'Product', '$routeParams', '$location', '$timeout', function ($scope, Product, $routeParams, $location, $timeout) {
             $scope.products = {
-                "sku1" : new Product( { "sku": "001", "name": "product1", "value":11 } ),
+                //"sku1" : new Product( { "sku": "001", "name": "product1", "value":11 } ),
                 "sku2" : new Product( { "sku": "002", "name": "product2", "value":12 } )
             };
 
@@ -39,5 +39,15 @@
             $scope.openItem = function (id) {
                 $location.path("/product/"+id);
             };
+
+            // TODO fix : prova barbara
+            $scope.$on('dataloaded', function () {
+                $timeout(function () {
+                    //console.log( 'L' + $('.cd-gallery').children('li').length );
+                    window.doGall();
+                }, 0, false);
+            });
+
+            $scope.$emit('dataloaded');
         }]);
 }(document, window));
