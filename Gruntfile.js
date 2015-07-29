@@ -15,6 +15,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-replace');
 
+    grunt.loadNpmTasks('grunt-gh-pages');
+
 	var usrConfig = require('./config.js');
 
 	var taskConfig = {
@@ -162,6 +164,13 @@ module.exports = function (grunt) {
 				],
 				tasks: [ 'sass', 'concat:build_css', 'cssmin:compile_css' ]
 			}
+		},
+
+        'gh-pages': {
+			options: {
+				base: 'public/src'
+			},
+			src: ['**']
 		}
 
 		// -- out
