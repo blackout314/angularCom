@@ -19,10 +19,11 @@
         .controller('ProductsCtrl', [
             '$scope',
             'Product',
+            'Cart',
             '$routeParams',
             '$location',
             '$timeout',
-            function ($scope, Product, $routeParams, $location, $timeout) {
+            function ($scope, Product, Cart, $routeParams, $location, $timeout) {
                 $scope.products = {
                     //"sku1" : new Product({ "sku": "001", "name": "product1", "value": 11 }),
                     "sku2" : new Product({ "sku": "002", "name": "product2", "value": 12 })
@@ -40,7 +41,9 @@
                  */
                 $scope.addToCart = function (id) {
                     // -> add in the cart
-                    //console.log('id add to cart'+id);
+                    console.log('id add to cart'+id);
+                    Cart.addItem(id, 1);
+                    console.log('basket '+JSON.stringify( Cart.getBasket() ) );
                 };
                 $scope.openItem = function (id) {
                     $location.path("/product/" + id);

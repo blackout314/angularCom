@@ -58,11 +58,39 @@
                 this.setData(cartData);
             }
         }
+        // ha senso col new? il carrello è solo uno
         Cart.prototype = {
             setData: function (cartData) {
                 angular.extend(this, cartData);
             }
         };
+
+        /**
+         * basket
+         */
+        Cart.basket = {};
+        /**
+         * add item
+         */
+        Cart.addItem = function (id, quantity) {
+            Cart.basket[id] = parseInt(Cart.basket[id]||0) + quantity;
+        };
+        /**
+         * delete item
+         */
+        Cart.delItem = function (id, quantity) {
+            Cart.basket[id] = parseInt(Cart.basket[id]||0) - quantity;
+            if (Cart.basket[id] <= 0) {
+                delete(Cart.basket[id]);
+            }
+        };
+        /**
+         * return basket
+         */
+        Cart.getBasket = function () {
+            return Cart.basket;
+        };
+
         return Cart;
     }]);
     /**
