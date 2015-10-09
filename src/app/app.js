@@ -112,6 +112,3 @@
 
 }(document, window));
 
-function doGall() {
-    // function call for make gall
-}
